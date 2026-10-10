@@ -1,97 +1,11 @@
-# @deepseek-ai/dsh-client-ui-aqua
+># @deepseek-ai/dsh-client-ui-aqua
 
-## 本 README 在原作者**英文 README** 与**中文 README** 全文的基础上，于文末新增「**适配 0.1.1-rc.2**」与「**适配 v0.2.x（当前版本）**」两节，补充了针对新版 DeepSeek Harness 的 API 改动、我们做的修补，以及**推荐的安装方式**，建议跳转文末阅读。
+**Aqua** 是一层高自由度的玻璃质感主题（glassmorphism），套在 DeepSeek Harness 网页端：顶栏、侧边栏、输入框、统计行、轨迹视图全部变成磨砂玻璃片，支持流体背景或图片/视频壁纸。关掉总开关即完全还原原生界面，不改 DSH 任何一行源码。
 
-## 强烈建议把整个仓库文件夹丢给其他Agent，让它帮忙装，如果有问题让它自己修复
-
-# 原作者为WYH66666666,github：https://github.com/WYH66666666/DSH-Transparent-UI-Plugin
-
-## 以下为原作者 README 原文
-
-# @deepseek-ai/dsh-client-ui-aqua
-
-English | [中文](README.zh.md)
-
-
-
-Aqua is a highly customizable glassmorphism theme for the DeepSeek Harness web UI. The header, sidebar, composer, stats line, and trajectory view all become panes of frosted glass. you can put video for wallpaper and Switch it off and the stock UI comes back exactly, with no source changes to DSH itself.
-
-![](assets/1.png)
-
-![](assets/2.png)
-
-![](assets/3.png)
-
-![](assets/4.png)
-
-## Features
-
-- **Two modes**: **Mica** restyles the layout into floating glass cards (blur and frost adjustable), while **Compatibility Mode** keeps the stock layout byte-for-byte and only swaps the material to generic glass — other plugins' UI gets the same treatment automatically
-- **Free backdrop**: a living fluid board (hue adjustable) or your own wallpaper (fills the page, aspect preserved, with its own blur and frost); light wallpapers look best in light mode, dark wallpapers in dark mode
-- **Background brightness**: follows the resolved scheme — dark mode darkens (0–50), light mode brightens (50–100), 50 is unchanged
-- **Particle whale**: the deepseek.com/harness centerpiece fish (a 2D port of the site's particle engine), centered in the chat area right of the sidebar — white particles on dark, gray on light, toggleable in settings
-- **Glossy "Harness" badge**: in dark mode the sidebar wordmark wears the official nameplate pill (135° gradient ring + soft glow); light mode keeps the stock plate
-- **Edge fades**: 5px gradient blur bands pinned to the top and bottom of the page, above the chat content — scrolling content melts into the edges; faint white veil on light, faint black on dark
-- One switch: off restores the stock UI exactly, and every effect is removed with the plugin
-
-## Installation
-
-### Option 1: npm one-liner (recommended)
-
-```sh
-dsh plugin --profile web add dsh-client-ui-aqua
-```
-
-Installs the latest version from npm and registers it as a profile plugin layer (`dsh.bundle` patch) — works on every platform. Reload the web UI and it is on.
-
-### Option 2: GitHub installer (fallback)
-
-No npm account and no git needed (falls back to a plain zip download).
-
-**Windows (one command):**
-
-```powershell
-powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest 'https://github.com/WYH66666666/DSH-Transparent-UI-Plugin/raw/main/install.ps1' -OutFile install.ps1; .\install.ps1"
-```
-
-Installs the **latest release** by default. The script links the plugin into the profile's `node_modules` and registers `ui-aqua` in `cordis.patch.yml` (idempotent — safe to run again).
-
-Pin a version or track the dev branch:
-
-```powershell
-.\install.ps1 -Version 'v1.1.0'   # a specific release
-.\install.ps1 -Version 'main'     # the development branch
-```
-
-**macOS / Linux (manual, three steps):**
-
-```sh
-git clone --depth 1 --branch v1.1.0 https://github.com/WYH66666666/DSH-Transparent-UI-Plugin.git
-ln -s "$PWD/DSH" "$DSH_HOME/profiles/node_modules/@deepseek-ai/dsh-client-ui-aqua"
-```
-
-then append to `$DSH_HOME/profiles/web/cordis.patch.yml`:
-
-```yaml
-- insert:
-    - id: ui-aqua
-      name: '@deepseek-ai/dsh-client-ui-aqua'
-```
-
-## Usage
-
-Reload the web UI. Aqua is **on by default**; the master switch lives in **Settings → Plugins → Glass theme** (same shape as the other plugin cards), and every other control sits directly under **Settings → General → Appearance** (no title of its own): mode, blur/frost (Mica mode), fluid color, background brightness, backdrop (fluid/wallpaper) with its wallpaper controls, and the particle-whale toggle. With the master switch off, the whole control block under Appearance is hidden.
-
----
-
-## 原作者中文 README（原文）
-
-# @deepseek-ai/dsh-client-ui-aqua
-
-[English](README.md) | 中文
-
-
-Aqua 是一层高自由度的玻璃质感主题，套在 DeepSeek Harness 网页端。顶栏、侧边栏、输入框、统计行、轨迹视图都成了磨砂玻璃片,你还可以添加视频和图片作为背景。关掉开关就回到原生界面，不改 DSH 任何一行源码。
+> **署名 / Credits**
+> - 原作者：**WYH66666666** — https://github.com/WYH66666666/DSH-Transparent-UI-Plugin
+> - 0.1.1-rc.2 适配：**du-u-uck** — https://github.com/du-u-uck/DSH-Transparent-UI-Plugin
+> - v0.2.x 适配（本仓库）：**acdsh4869**
 
 ![](assets/1.png)
 
@@ -103,143 +17,42 @@ Aqua 是一层高自由度的玻璃质感主题，套在 DeepSeek Harness 网页
 
 ## 特性
 
-- **双模式**：**云母效果**把布局改成悬浮玻璃卡片（模糊度、磨砂度可调）；**兼容模式**保持原版排版一字不动，只把材质换成通用玻璃，其他插件的界面也会自动玻璃化
-- **背景自由**：流体板（颜色可调）或自定义壁纸（铺满页面、比例不变，可单独调模糊度/磨砂度）；浅色壁纸配浅色模式、深色壁纸配深色模式观感更佳
+- **双模式**：**云母效果**把布局改成悬浮玻璃卡片（模糊度、磨砂度可调）；**兼容模式**保持原版排版不变，只把材质换成通用玻璃，其他插件的界面也会自动玻璃化
+- **背景自由**：流体板（色调/深浅可调）或自定义图片/视频壁纸（铺满页面、比例不变，可单独调模糊度/磨砂度）；浅色壁纸配浅色模式、深色壁纸配深色模式观感更佳
 - **背景亮度**：自动跟随深浅模式——深色模式 0–50 压暗、浅色模式 50–100 提亮，50 原样
-- **粒子鲸鱼**：deepseek.com/harness 同款粒子鱼（官网粒子引擎移植），显示在聊天区域正中央（不含侧边栏），深色模式白粒子、浅色模式灰粒子，设置里可开关
-- **Harness 光泽铭牌**：深色模式下侧边栏铭牌换成官网同款「Harness」药丸（135° 渐变描边 + 柔光），浅色模式保持原版铭牌
-- **边缘渐变模糊**：页面顶部/底部各 5px 渐变模糊带，悬浮在聊天内容上层，内容滚到边缘渐入模糊；浅色微泛白、深色微泛黑
-- 一键开关：关闭即完全还原原生界面，所有效果随插件卸载一并消失
+- **粒子鲸鱼 / 小鱼 / 网状交互 / 鼠标辉光 / 悬停下压**等环境与悬停装饰，均可单独开关
+- **一键恢复默认**：设置里的「恢复默认效果」按钮可把全部调节项恢复出厂默认
+- 一键开关：关闭即完全还原原生界面，无残留
 
-## 安装
+## 安装（v0.2.x 适配版）
 
-### 方式一：npm 一键安装（推荐）
+> ⚠️ **npm 一键安装（`dsh plugin --profile web add dsh-client-ui-aqua`）拉到的是未适配 v0.2.x 的旧版**，请勿使用，直到本适配版发布到 npm。
 
-```sh
-dsh plugin --profile web add dsh-client-ui-aqua
-```
-
-从 npm 安装最新版，自动注册为 profile 插件层（`dsh.bundle` 补丁），所有平台通用。刷新 Web 界面即可。
-
-### 方式二：GitHub 安装器（备用）
-
-不需要 npm、不需要 git（自动退回 zip 下载）。
-
-**Windows（一条命令）：**
+### 方式一：PowerShell 一键安装（推荐）
 
 ```powershell
-powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest 'https://github.com/WYH66666666/DSH-Transparent-UI-Plugin/raw/main/install.ps1' -OutFile install.ps1; .\install.ps1"
+irm https://raw.githubusercontent.com/acdsh4869/DSH-Transparent-UI-Plugin/main/install.ps1 | iex
 ```
 
-默认安装**最新发布版**。脚本会把插件链接进 profile 的 `node_modules`，并在 `cordis.patch.yml` 里登记 `ui-aqua`（幂等，重复跑不会重复登记）。
+脚本会：① 从本仓库下载最新 Release；② 把插件链接进 `%USERPROFILE%\.dsh\profiles\node_modules\@deepseek-ai\dsh-client-ui-aqua`；③ 在 `profiles\web\cordis.patch.yml` 登记 `ui-aqua`（幂等，重复运行安全）。完成后**刷新 Web 界面**即可。
 
-指定版本或跟随开发分支：
+指定版本或分支：`-Version 'v2.0.0-rc.1'` / `-Version 'main'`；DSH 不在默认位置时加 `-DshHome`。
 
-```powershell
-.\install.ps1 -Version 'v1.1.0'   # 指定某个发布版
-.\install.ps1 -Version 'main'     # 开发分支
-```
+### 方式二：本地文件夹安装
 
-**macOS / Linux（手动，三步）：**
-
-```sh
-git clone --depth 1 --branch v1.1.0 https://github.com/WYH66666666/DSH-Transparent-UI-Plugin.git
-ln -s "$PWD/DSH" "$DSH_HOME/profiles/node_modules/@deepseek-ai/dsh-client-ui-aqua"
-```
-
-然后往 `$DSH_HOME/profiles/web/cordis.patch.yml` 追加：
-
-```yaml
-- insert:
-    - id: ui-aqua
-      name: '@deepseek-ai/dsh-client-ui-aqua'
-```
-
-## 使用
-
-刷新 Web 界面。Aqua **默认开启**；总开关在 **设置 → 插件 → 玻璃主题**（形状与其他插件卡片一致），其余全部调节在 **设置 → 通用设置 → 外观** 的正下方（无独立标题）：模式、模糊度/磨砂度（云母模式）、流体颜色、背景亮度、背景（流体/壁纸）、壁纸设置，以及粒子鲸鱼开关。总开关关闭时，外观下方的整块调节自动隐藏。
-
----
-
-# 以下为新增适配内容！！！
-
-## 适配 v0.2.x（当前版本，DSH v0.2.x / 桌面端 v0.22.3+）
-
-本分发包已针对 **DeepSeek Harness `0.2.0-rc.2`（含桌面端 v0.22.3 及以上）** 完成适配，版本号 `2.0.0-rc.1`。本适配维护在 <https://github.com/acdsh4869/DSH-Transparent-UI-Plugin>（原作者 WYH66666666；0.1.1-rc.2 适配 du-u-uck）。
-
-### 0.2.x 相对 0.1.1-rc.2 的破坏性变更与对应修改
-
-1. **`ctx.settingsScope` 服务被移除**：删除 `ctx.settingsScope.bind({ namespace })` 调用。
-2. **插件主卡片槽位迁移**：`settings.plugin.item` 不再存在，主卡片改注册到 **`plugins.bundle.config`**（keyed/root，key = npm 包名 `@deepseek-ai/dsh-client-ui-aqua`），出现在「插件」页该 bundle 的详情页中。
-3. **`ctx.slots.inject(name, factory)` 回归**：注册恢复为 `ctx.effect(() => ctx.slots.inject(...))`。
-4. **`@deepseek-ai/dsh-client-runtime` 消失**：`defineStore` 改用 `@deepseek-ai/dsh-client-store`；`ctx.slots` 类型合并来自 `@deepseek-ai/dsh-client-ui-renderer/client`。
-5. **图标改名**：`IconCheckOutline16` → `IconCheckOutlineRegular`。
-6. **依赖声明**：`dsh.client.inject` = `dsh-client-locale` / `dsh-client-ui-theme` / `dsh-client-ui-slots`；peerDependencies 只留 `@deepseek-ai/cordis ~4.0.4` + `react ^18.2.0`（不声明 `@deepseek-ai/dsh*` peer，宿主版本检查即通过）。
-7. **构建管线**：新增 `scripts/wrap-client.mjs`，把 tsdown 的 ESM 产物后处理为 DSH 要求的 `window.__ModuleLoader__.load(...)` 包裹格式并内联 CSS；`npm run bundle` 一条命令产出完整 `lib/`。
-8. **主题样式随包内联**：tsdown/rolldown 会摇掉纯副作用的 CSS 导入（全局主题 `aqua.module.css` 与字体表 `fonts.module.css`），`wrap-client.mjs` 改为直接从 `src/client/` 读取并内联，保证玻璃/流体/字体样式完整。
-9. **0.2.x 新布局容器透明化**：0.2.x 把基础底色画在新的布局列（`centerCol`/`rightbarCol`）与两块侧栏面板（浏览器预览/文档预览）的 frame 根节点上，主题样式补充对应类片段锚点（`[class*='centerCol']`、`[class*='rightbarCol']`、侧栏列内 `[class$='_frame']`）置为透明，流体背景可透至主区域与侧栏面板。
-10. **兼容模式不再模糊 `panel`**：0.2.x 里 `panel` 类片段命名整栏大容器，兼容模式的通用玻璃规则已将其从磨砂选择器中移除（避免半屏模糊）。
-11. **新增「恢复默认效果」按钮**：通用设置 → 外观 → 玻璃效果组内可一键把全部调节项恢复出厂默认（保留开关状态）。
-
-全部玻璃质感功能（磨砂/流体/壁纸/亮度/粒子鲸鱼/云母/兼容模式/总开关关闭即完全还原）与设置项原样保留；`settings.general.item` 外观调节行与 `settings.aqua` 文案命名空间不变。
-
-## 适配 0.1.1-rc.2（历史说明，已被 v0.2.x 适配取代）
-
-本分发包已针对 **DeepSeek Harness `0.1.1-rc.2`** 完成 API 适配，可直接安装使用。
-
-### 原版不适配原因
-
-`0.1.1-rc.2` 对客户端插件 API 做了破坏性变更（Theme / Store / Invariant / Locale 不变）：
-
-1. **`settings.plugin.item` 槽位由 `list` 改为 `keyed`**：插件主卡片必须用 `key: 'settings.aqua'` 注册，不再用 `id` / `order`。
-2. **「插件」配置页改为按 namespace 驱动**：必须调用 `ctx.settingsScope.bind({ namespace: 'settings.aqua' })`，否则 Aqua 主卡片不会出现在「插件」页。
-3. **`ctx.slots.inject` 已移除**：改用 `ctx.effect(() => ctx.slots.register({...}, Comp), label)` 注册卡片与外观行。
-4. **`settings.general.item` 仍是 `list`**：`id` / `order` 不变（外观调节行照旧）。
-
-### 修改内容
-
-- **还原 v1 预构建产物 `lib/`**（保留 `window.__ModuleLoader__.load(...)` 包裹格式与 CSS 内联注入），再对 `lib/client.js` 做**最小 API 修补**：
-  - 注入服务数组加入 `"settingsScope"`；
-  - `new AquaLayer(ctx)` 之后调用 `ctx.settingsScope.bind({ namespace: 'settings.aqua' })`；
-  - 两处 `ctx.slots.inject(...)` 替换为 `ctx.effect(() => ctx.slots.register(...))`；
-  - `settings.plugin.item` 用 `key: 'settings.aqua'`（去掉 `id` / `order`）；
-  - `settings.general.item` 维持 `id: 'aqua', order: 11`。
-- **`src/client/index.ts` 同步上述改动**，供未来在 monorepo 内用原厂预设重建。
-- **新增独立构建 / 类型校验配置** `tsconfig.standalone.json` + `tsdown.standalone.config.ts`，可在 monorepo 之外做类型校验；`package.json` 加入 `@tsdown/css` 与 `overrides`（钉死 `tinyexec` / `@rolldown/pluginutils` 版本）以保证可复现。
-- **全部玻璃质感功能与设置项原样保留**（磨砂/流体、壁纸模糊与柔光分离、亮度、粒子鲸鱼、mica / 兼容模式等）。
-
-> 为什么不直接用 `tsdown` 重新构建 `client.js`？主机要求的 bundle 形态（CSS 内联注入）由 DSH 未对外发布的 client 构建预设产生；公开可用的 `@tsdown/css` 只会把 CSS 抽成独立的 `style.css` + `import`，主机无法识别。因此采用「还原 v1 预构建 + 最小 API 修补」的可靠路径。
-
-### 兼容性验证
-
-通过一份基于 mock 运行时的冒烟测试（`vm` 沙箱加载 `lib/client.js`，mock 一整套 DSH Web 运行时 + 浏览器 DOM，激活插件后断言新 API 表面）验证：
-
-- `window.__ModuleLoader__.load` 包裹与内联 CSS 注入完整；
-- `ctx.settingsScope.bind` 被调用且仅调用一次，`namespace === 'settings.aqua'`；
-- `settings.plugin.item` 以 `key: 'settings.aqua'` 注册且无 `id`（list→keyed 迁移）；
-- `settings.general.item` 仍为 `id: 'aqua', order: 11`。
-
-全部断言通过。该验证脚本位于完整开发仓库的 `scripts/` 下，未纳入本精简分发包（不影响运行）。
-
-
-# 安装方式（本适配版）
-
-## 最推荐：把整个文件夹扔给其他Agent，让它帮你安装
-
-由于原作者已在 README 中声明难以跟进 DSH API 更新，**npm 发布版仍未适配 `0.1.1-rc.2` 的旧版**；因此推荐直接安装**本文件夹（已适配的副本）**，而不是 `dsh plugin add` 拉取 npm 版。
-
-**Windows（PowerShell，下载本仓库zip包后在本文件夹或任意目录执行；把路径改成你实际放置本文件夹的位置）：**
+下载或 clone 本仓库到本地，然后：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -Command ".\install.ps1 -Source '绝对路径\DSH-Transparent-UI-Plugin' -Profile web"
 ```
 
-DSH 不在默认 `%USERPROFILE%\.dsh` 时，追加 `-DshHome '你的DSH路径'`。脚本会：① 取源码（本地路径直接链接，不走下载）；② 在 `profiles\node_modules\@deepseek-ai\dsh-client-ui-aqua` 建立 **junction 软链**（实时生效，之后在本文件夹里微调会直接反映到 DSH，无需重装）；③ 在 `profiles\web\cordis.patch.yml` 登记 `ui-aqua`（幂等，重复运行安全）。完成后**刷新 Web 界面**即可。
+本地路径会建立 **junction 软链**（实时生效，之后在本文件夹里改代码/重建会直接反映到 DSH，无需重装）。
 
 **macOS / Linux（手动三步）：**
 
 ```sh
-ln -s "/绝对路径/DSH-Transparent-UI-Plugin" "$DSH_HOME/profiles/node_modules/@deepseek-ai/dsh-client-ui-aqua"
+git clone https://github.com/acdsh4869/DSH-Transparent-UI-Plugin.git
+ln -s "$PWD/DSH-Transparent-UI-Plugin" "$DSH_HOME/profiles/node_modules/@deepseek-ai/dsh-client-ui-aqua"
 ```
 
 再往 `$DSH_HOME/profiles/web/cordis.patch.yml` 追加：
@@ -250,18 +63,38 @@ ln -s "/绝对路径/DSH-Transparent-UI-Plugin" "$DSH_HOME/profiles/node_modules
       name: '@deepseek-ai/dsh-client-ui-aqua'
 ```
 
-### 原作者提供的其他安装方式（仅供参考，大概率报错）
+> 💡 也可以把整个仓库文件夹丢给其他 Agent 帮忙安装，有问题让它自己修复。
 
-- **npm 一键**：`dsh plugin --profile web add dsh-client-ui-aqua`（可能拉到未适配新版 API 的旧版，谨慎使用）。
-- **GitHub 安装器**：`powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest 'https://github.com/WYH66666666/DSH-Transparent-UI-Plugin/raw/main/install.ps1' -OutFile install.ps1; .\install.ps1"`（默认装最新发布版，可 `-Version` 指定版本或 `main` 分支）。
+## 使用
 
-### 使用（v0.2.x）
-
-刷新 Web 界面。Aqua **默认开启**：
+刷新 Web 界面，Aqua **默认开启**：
 
 - **总开关**：设置 → 插件 → 点击 **Aqua / dsh-client-ui-aqua** bundle 卡片进入详情页 → 玻璃主题开关卡片。
-- **全部调节**：设置 → 通用设置 → 外观 正下方（无独立标题）—— 模式（云母/兼容）、模糊度/磨砂度、流体颜色、背景亮度、背景（流体/壁纸）、壁纸设置、粒子鲸鱼开关。总开关关闭时整块调节自动隐藏，界面完全恢复原生样式。
+- **全部调节**：设置 → 通用设置 → 外观 正下方（无独立标题）—— 模式（云母/兼容）、模糊度/磨砂度、流体颜色、背景亮度、背景（流体/壁纸）、壁纸设置、环境装饰（鲸鱼/小鱼/网状交互）与悬停效果开关，以及「恢复默认效果」一键按钮。总开关关闭时整块调节自动隐藏，界面完全恢复原生样式。
 
 > 若刷新后未出现 Aqua 卡片，重启 dsh web 进程后再试。
 
-> **npm 一键安装（`dsh plugin --profile web add dsh-client-ui-aqua`）说明**：npm 上的旧发布版未适配 v0.2.x，可能加载失败——请使用本文件夹本地安装（上文 `install.ps1 -Source`），待本适配版发布后 npm 一键安装才会恢复可用。
+## 适配 v0.2.x 说明（当前版本）
+
+本分发版针对 **DeepSeek Harness `0.2.0-rc.2`（含桌面端 v0.22.3 及以上）** 完成适配，版本号 `2.0.0-rc.1`。主要变更：
+
+1. **`ctx.settingsScope` 服务被移除**：插件主卡片迁移到 **`plugins.bundle.config`**（keyed，key = npm 包名）。
+2. **`ctx.slots.inject(name, factory)` 回归**：注册恢复为 `ctx.effect(() => ctx.slots.inject(...))`。
+3. **`@deepseek-ai/dsh-client-runtime` 消失**：`defineStore` 改用 `@deepseek-ai/dsh-client-store`；`ctx.slots` 类型合并来自 `@deepseek-ai/dsh-client-ui-renderer/client`。
+4. **图标改名**：`IconCheckOutline16` → `IconCheckOutlineRegular`。
+5. **依赖声明**：`dsh.client.inject` = locale / ui-theme / ui-slots；peerDependencies 只留 `@deepseek-ai/cordis ~4.0.4` + `react ^18.2.0`（不声明 `@deepseek-ai/dsh*` peer，宿主版本检查即通过）。
+6. **构建管线**：新增 `scripts/wrap-client.mjs`——把 tsdown ESM 产物后处理为 DSH 要求的 `window.__ModuleLoader__.load(...)` 包裹格式，并直接从 `src/client/` 内联全局主题 CSS（rolldown 会摇掉纯副作用的 CSS 导入，导致早期构建主题整体缺失）。
+7. **0.2.x 新布局容器透明化**：`centerCol`/`rightbarCol` 布局列与侧栏面板 frame 根节点的自绘不透明底色置为透明，流体背景可透至主区域。
+8. **兼容模式修复**：0.2.x 里 `panel` 类片段命名整栏大容器，已从磨砂选择器中移除（避免半屏模糊）。
+9. **新增「恢复默认效果」按钮**：一键恢复出厂默认（保留开关状态）。
+
+细节与历史（含 0.1.1-rc.2 适配记录）见 [CHANGELOG.md](CHANGELOG.md)。
+
+## 开发
+
+```sh
+pnpm install
+pnpm run bundle   # tsdown + tsc + wrap-client.mjs → 完整 lib/
+```
+
+AGPL-3.0 © 原作者 WYH66666666 及各适配者
