@@ -1,0 +1,22 @@
+node_modules/
+.npm-stage/
+lib/tsconfig.tsbuildinfo
+lib/types/**/*.js
+lib/types/**/*.js.map
+lib/types/**/*.d.ts.map
+
+# WorkBuddy agent internal data (memory, skills, etc.)
+.workbuddy/
+
+# local submission reference material (not part of the plugin)
+/awesome-dsh-plugin-main/
+/contributing.md
+
+/DSH-Transparent-UI-Plugin/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+.idea/
