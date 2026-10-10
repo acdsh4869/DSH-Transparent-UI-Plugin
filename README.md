@@ -165,7 +165,7 @@ ln -s "$PWD/DSH" "$DSH_HOME/profiles/node_modules/@deepseek-ai/dsh-client-ui-aqu
 
 ## 适配 v0.2.x（当前版本，DSH v0.2.x / 桌面端 v0.22.3+）
 
-本分发包已针对 **DeepSeek Harness `0.2.0-rc.2`（含桌面端 v0.22.3 及以上）** 完成适配，版本号 `2.0.0-rc.1`。
+本分发包已针对 **DeepSeek Harness `0.2.0-rc.2`（含桌面端 v0.22.3 及以上）** 完成适配，版本号 `2.0.0-rc.1`。本适配维护在 <https://github.com/acdsh4869/DSH-Transparent-UI-Plugin>（原作者 WYH66666666；0.1.1-rc.2 适配 du-u-uck）。
 
 ### 0.2.x 相对 0.1.1-rc.2 的破坏性变更与对应修改
 
