@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/du-u-uck/DSH-Transparent-UI-Plugin.git"
+    "url": "git+https://github.com/acdsh4869/DSH-Transparent-UI-Plugin.git"
   },
   "type": "module",
   "sideEffects": ["**/*.css", "**/*.module.css"],
@@ -46,7 +46,7 @@
     "bundle": "tsdown && tsc -p tsconfig.standalone.json && node scripts/wrap-client.mjs",
     "watch": "tsdown --watch"
   },
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "peerDependencies": {
     "@deepseek-ai/cordis": "~4.0.4",
     "react": "^18.2.0"

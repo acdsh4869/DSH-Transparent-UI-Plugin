@@ -7,6 +7,15 @@
 > - 0.1.1-rc.2 适配：**du-u-uck** — https://github.com/du-u-uck/DSH-Transparent-UI-Plugin
 > - v0.2.x 适配（本仓库）：**acdsh4869**
 
+> **修改声明 / Modification Notice**
+>
+> 本仓库是原作品的**修改 / 适配版**，不是原创。
+> - 原作者（Original author）：**WYH66666666**
+> - 修改内容（Changes）：DeepSeek Harness **0.2.x** 兼容适配
+> - 修改日期（Date of modification）：**2026-10**
+> - 维护仓库（Maintained at）：`acdsh4869/DSH-Transparent-UI-Plugin`
+> - 许可（License）：**AGPL-3.0**（沿用上游许可）
+
 ![](assets/1.png)
 
 ![](assets/2.png)
