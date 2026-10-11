@@ -13,7 +13,7 @@
 > - 原作者（Original author）：**WYH66666666**
 > - 修改内容（Changes）：DeepSeek Harness **0.2.x** 兼容适配
 > - 修改日期（Date of modification）：**2026-10**
-> - 维护仓库（Maintained at）：`acdsh4869/DSH-Transparent-UI-Plugin`
+> - 维护仓库（Maintained at）：`acdsh4869/dsh-aqua-theme`
 > - 许可（License）：**AGPL-3.0**（沿用上游许可）
 
 ![](assets/1.png)
@@ -40,7 +40,7 @@
 ### 方式一：PowerShell 一键安装（推荐）
 
 ```powershell
-irm https://raw.githubusercontent.com/acdsh4869/DSH-Transparent-UI-Plugin/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/acdsh4869/dsh-aqua-theme/main/install.ps1 | iex
 ```
 
 脚本会：① 从本仓库下载最新 Release；② 把插件链接进 `%USERPROFILE%\.dsh\profiles\node_modules\@deepseek-ai\dsh-client-ui-aqua`；③ 在 `profiles\web\cordis.patch.yml` 登记 `ui-aqua`（幂等，重复运行安全）。完成后**刷新 Web 界面**即可。
@@ -52,7 +52,7 @@ irm https://raw.githubusercontent.com/acdsh4869/DSH-Transparent-UI-Plugin/main/i
 下载或 clone 本仓库到本地，然后：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -Command ".\install.ps1 -Source '绝对路径\DSH-Transparent-UI-Plugin' -Profile web"
+powershell -ExecutionPolicy Bypass -Command ".\install.ps1 -Source '绝对路径\dsh-aqua-theme' -Profile web"
 ```
 
 本地路径会建立 **junction 软链**（实时生效，之后在本文件夹里改代码/重建会直接反映到 DSH，无需重装）。
@@ -60,8 +60,8 @@ powershell -ExecutionPolicy Bypass -Command ".\install.ps1 -Source '绝对路径
 **macOS / Linux（手动三步）：**
 
 ```sh
-git clone https://github.com/acdsh4869/DSH-Transparent-UI-Plugin.git
-ln -s "$PWD/DSH-Transparent-UI-Plugin" "$DSH_HOME/profiles/node_modules/@deepseek-ai/dsh-client-ui-aqua"
+git clone https://github.com/acdsh4869/dsh-aqua-theme.git
+ln -s "$PWD/dsh-aqua-theme" "$DSH_HOME/profiles/node_modules/@deepseek-ai/dsh-client-ui-aqua"
 ```
 
 再往 `$DSH_HOME/profiles/web/cordis.patch.yml` 追加：

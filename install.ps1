@@ -23,7 +23,7 @@
 param(
     # Default to the adapted fork; pass a local folder path via -Source to
     # install from disk (junction link, live reload of edits).
-    [string]$Source = 'https://github.com/acdsh4869/DSH-Transparent-UI-Plugin',
+    [string]$Source = 'https://github.com/acdsh4869/dsh-aqua-theme',
     [string]$Version = 'latest',
     [string]$DshHome = $env:DSH_HOME,
     [string]$Profile = 'web'

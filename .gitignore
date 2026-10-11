@@ -12,7 +12,7 @@ lib/types/**/*.d.ts.map
 /awesome-dsh-plugin-main/
 /contributing.md
 
-/DSH-Transparent-UI-Plugin/
+/dsh-aqua-theme/
 
 # OS / editor noise
 .DS_Store
